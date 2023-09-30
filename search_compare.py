@@ -1,12 +1,10 @@
 import time
 import random
 
-
 def get_me_random_list(n):
     a_list = list(range(n))
     random.shuffle(a_list)
     return a_list
-
 
 def sequential_search(a_list, item):
     pos = 0
@@ -19,8 +17,6 @@ def sequential_search(a_list, item):
             pos = pos + 1
 
     return found
-
-
 def ordered_sequential_search(a_list, item):
     pos = 0
     found = False
@@ -35,8 +31,6 @@ def ordered_sequential_search(a_list, item):
                 pos = pos + 1
 
     return found
-
-
 def binary_search_iterative(a_list, item):
     first = 0
     last = len(a_list) - 1
@@ -52,8 +46,6 @@ def binary_search_iterative(a_list, item):
                 first = midpoint + 1
 
     return found
-
-
 def binary_search_recursive(a_list, item):
     if len(a_list) == 0:
         return False
@@ -67,17 +59,14 @@ def binary_search_recursive(a_list, item):
             else:
                 return binary_search_recursive(a_list[midpoint + 1:], item)
 
-
 if __name__ == "__main__":
     """Main entry point"""
     the_size = 500
-
     total_time = 0
     for i in range(100):
         mylist = get_me_random_list(the_size)
         # sorting is not needed for sequential search.
         mylist = sorted(mylist)
-
         start = time.time()
         check = binary_search_iterative(mylist, -1)  # Changed the search target to -1
         time_spent = time.time() - start
